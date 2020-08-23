@@ -1,0 +1,52 @@
+{%extends 'Template.html'%}
+
+{%block title%}
+Loans
+{%endblock%}
+
+{%block content%}
+<div class = "card-panel" style = "background-image: linear-gradient(to bottom right, #7070db, #0000CC ); margin:20px">
+	<div class='card-content'>
+		<span class = 'card-title' style="font-weight:bold">Personal Loans</span>
+		<hr>
+		<form method= "POST">
+			{%csrf_token%}
+			<label><span style="color:#000000">Recipent</label></span>
+			<input type = "text" name = "Recipent">
+			<label><span style="color:#000000">MobileNo</label></span>
+			<input type = "text" name = "Mobile">
+			<label><span style="color:#000000">Purpose</label></span>
+			<input type = "text" name = "Purpose">
+			<label><span style="color:#000000">Location</label></span>
+			<input type = "text" name = "Location">
+			<label><span style="color:#000000">DOB</label></span>
+			<input type = "date" name = "DOB">
+			<label><span style="color:#000000">Amount</label></span>
+			<input type = "text" name = "Amount">
+			<label><span style="color:#000000">Interest</label></span>
+			<input type = "text" name = "Interest">
+			<label><span style="color:#000000">Collateral</label></span>
+			<p>
+
+      <label>
+        <input type="checkbox" name = "collateral" value = "1"/>
+        <span style="color:#000000">House</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "collateral" value = "2"/>
+        <span style="color:#000000">Land</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "collateral" value = "3"/>
+        <span style="color:#000000">Others</span>
+      </label>
+    </p>
+    <button type = "submit">Submit</button>
+		</form>
+	</div>
+</div>
+{%endblock%}

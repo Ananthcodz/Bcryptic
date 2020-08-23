@@ -1,0 +1,19 @@
+{%extends 'Template.html'%}
+{%block title%}
+Personal Loans
+{%endblock%}
+{%block content%}
+
+
+<div class = "card-panel" style = "margin: 20px;background-color: #000000">
+	<div class='card-content' style="background-color:##4d2600">
+
+{%if Loan.Approved%}
+<span style="color:#ff0000;margin-left:35%;font-weight: bold;font-size:20;font-family: Times New Roman, Times, serif">Your Loan amount of {{Loan.Amount}} has been approved!!<br><br><br><br><br><img src="https://media1.tenor.com/images/cb39c6851240eda84694c00000379f5d/tenor.gif?itemid=13765529" style ="margin-left: 32%"></span>
+{%else%}
+<span style="color:#ff0000;margin-left:25%;font-weight: bold;font-size:20;font-family: Times New Roman, Times, serif">Your Loan amount of ${{Loan.Amount}} is not yet approved :( , We will get to you as soon as possible :)<br><br><br><br><br><img src="https://media.tenor.com/images/6a5bcfba04e217d91f7aec29849ae208/tenor.gif" style ="margin-left:43%"></span>
+{%endif%}
+</div>
+</div>
+
+{%endblock%}

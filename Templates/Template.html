@@ -1,0 +1,93 @@
+<html>
+ <head>
+ 	<title>
+ 		{%block title%}
+
+ 		{%endblock%}
+ 	</title>
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+ </head>
+<style type="text/css">
+  .glitch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.glitch .text{
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 45px;
+  transform: scale(2);
+  padding: 30px;
+  letter-spacing: 2px;
+}
+.glitch .text:before,
+.glitch .text:after {
+  padding: 30px;
+  color: white;
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+}
+.glitch .text:before{
+  left: 3px;
+  text-shadow: -2px 0 red;
+  animation: glitch-1 2s linear infinite reverse;
+}
+.glitch .text:after{
+  left: -3px;
+  text-shadow: -2px 0 blue;
+  animation: glitch-2 2s linear infinite reverse;
+
+}
+{%load static%}
+@font-face {
+  font-family: "PressStart2P-Regular";
+  src: url("{%static 'fonts/'%}PressStart2P-Regular.eot"); /* IE9 Compat Modes */
+  src: url("{%static 'fonts/'%}PressStart2P-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("{%static 'fonts/'%}PressStart2P-Regular.otf") format("opentype"), /* Open Type Font */
+    url("{%static 'fonts/'%}PressStart2P-Regular.svg") format("svg"), /* Legacy iOS */
+    url("{%static 'fonts/'%}PressStart2P-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("{%static 'fonts/'%}PressStart2P-Regular.woff") format("woff"), /* Modern Browsers */
+    url("{%static 'fonts/'%}PressStart2P-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+ <body style="background-image: linear-gradient(to right,#000000, #404040 );font-family:PressStart2P-Regular">
+
+
+  <nav style="background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(217,208,25,1) 35%, rgba(87,233,36,1) 100%)">
+    <div class="nav-wrapper">
+      <link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
+      <a href="{%url 'Home'%}" class="brand-logo" style ="color:#000000;font-family:Alfa Slab One">BCRYPTIC</a>      
+      <ul class = "right">
+      {%load static%}
+      <a href="#" class="brand-logo center"><img src= "{%static 'logo.png'%}" ></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      	{%if user.is_authenticated%}
+        <li><a href="{%url 'CreditCard'%}"><span style ="color:#000000;font-size:85%">CreditCard</a></li></span>
+        <li><a href="{%url 'BankingSystem'%}"><span style ="color:#000000;font-size:85%">Banking</a></li></span>
+        <li><a href="{%url 'Loans'%}"><span style ="color:#000000;font-size:85%">Loans</a></li></span>
+        <li><a href="{%url 'Contact'%}"><span style ="color:#000000;font-size:85%">Contact</a></li></span>
+      	<li><a href="{%url 'logout'%}"><span style ="color:#000000;font-size:85%">Logout</a></li></span>
+        {%else%}
+        <li><a href="{%url 'Login'%}"><span style="color:#000000">Login</span></a></li>
+        <li><a href="{%url 'Register'%}"><span style="color:#000000">Register</span></a></li>
+        {%endif%}
+      </ul>
+    </div>
+  </nav>
+{%block content%}
+{%endblock%}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+ </body>
+
+ </html>

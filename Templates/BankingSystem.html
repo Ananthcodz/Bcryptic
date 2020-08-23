@@ -1,0 +1,149 @@
+{%extends 'Template.html'%}
+
+{%block title%}
+Banking
+{%endblock%}
+
+{%block content%}
+<div class = "card-panel" style = "background-image: linear-gradient(to bottom right,#ff9933,  #ffcc66 ); margin:20px">
+	<div class='card-content' style="background-color:#ffff80">
+		<span class = 'card-title'><span style= "font-weight: bold;margin:40%;font-size:100%">BANKING SYSTEM</span></span>
+		<hr>
+	<div class="col s12" style="background-color:#ffff99">
+      <ul class="tabs" style="background-color:#ffff99">
+        <li class="tab col s3"><a class="active"href="#test1"><span style="color:#000000">Balance</span></a></li>
+        <li class="tab col s3"><a href="#test2"><span style="color:#000000">Transact</span></a></li>
+        <li class="tab col s3"><a href="#test3"><span style="color:#000000">Statements</span></a></li>
+      </ul>
+    </div>
+    <div id="test1" class="card-panel" style="background-color:#ffffcc">
+    	<div class='card-content'style="background-color:#ffffcc">
+    		<span class = 'card-title'style= "font-weight: bold;color:#000000">Balance</span>
+		<hr>
+		Your Balance: {{BankModel.Balance}}
+    	</div>
+    </div>
+    <div id="test2" class="card-panel" style="background-color:#ffffcc">
+    	<div class='card-content' style="background-color:#ffffcc">
+    		<span class = 'card-title' style= "font-weight: bold;color:#000000">Transact</span>
+		<hr>
+	<form method = "POST" id = "form">
+		{%csrf_token%}
+			
+	<label><span style="color:#000000"> Amount: </label></span>
+	<input type = "text" name = "Amount"><br><br>
+  <label><span style="color:#000000"> Choice: </label></span>
+	<p>
+      	<label>
+        	<input type="checkbox" id = "ExternalBank" />
+        	<span style="color:#000000">Other Banks</span>
+     	 </label>
+    </p>
+	<p>
+      	<label>
+        	<input type="checkbox" name = "Type" value = "1">
+        	<span style="color:#000000">Deposit to wallet </span>
+     	 </label>
+    	</p>
+	<p>
+      <label>
+        <input type="checkbox" name = "Type" value = "2">
+        <span style="color:#000000">Withdraw from wallet</span>
+      </label>
+    </p>
+    <div id = "ExtBank">
+
+    </div>
+
+		</form>
+    	</div>
+    
+	<button onclick="submitt()">Submit</button>
+    </div>
+    <div id="test3" class="card-panel" style="background-color:#ffffcc">
+    <div class='card-content'style="background-color:#ffffcc">
+        <span class = 'card-title'><span style= "font-weight: bold;color:#000000">Statements</span></span>
+
+      <table class="highlight">
+        <thead>
+          <tr>
+              <th style="text-decoration: underline">Transaction Id</th>
+              <th style="text-decoration: underline">Amount</th>
+              <th style="text-decoration: underline">Type</th>
+              <th style="text-decoration: underline">Bank</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {%for i in Trans1%}
+          <tr>
+            <td>{{i.Transcation_Id}}</td>
+            <td>${{i.Money}}</td>
+            {%if i.Type == "1"%}
+            <td style="color: green;">Deposit</td>
+            {%else%}
+            <td style="color: red;">Withdrawal</td>
+            {%endif%}
+            <td>BCRYPTIC</td>
+          </tr>
+          {%endfor%}
+          {%for i in Trans2%}
+          <tr>
+            <td>{{i.Transcation_Id}}</td>
+            <td>${{i.Money}}</td>
+            {%if i.Type == "1"%}
+            <td style="color: green;">Deposit</td>
+            {%else%}
+            <td style="color: red;">Withdrawal</td>
+            {%endif%}
+            {%if i.Bank == "1"%}
+            <td>State Bank of India</td>
+            {%elif i.Bank == "2"%}
+            <td>Central Bank of India</td>
+            {%elif i.Bank == "3"%}
+            <td>Swiss Bank</td>
+            {%elif i.Bank == "4"%}
+            <td>Bank of Baroda</td>
+            {%elif i.Bank == "5"%}
+            <td>HDFC</td>
+            {%elif i.Bank == "6"%}
+            <td>Credit one</td>
+            {%elif i.Bank == "7"%}
+            <td>ICICI</td>
+            {%endif%}
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+        
+
+    <hr>
+	</div></div>
+</div>
+
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+</script>
+<script type="text/javascript">
+	const checkbox = document.getElementById('ExternalBank')
+
+checkbox.addEventListener('change', (event) => {
+  if (event.target.checked) {
+  	document.getElementById('ExtBank').innerHTML = '<hr class = "bold"><label> IFSC: </label><input type = "text" name = "IFSC"><br><br><p><label><input type="checkbox" name = "CreditCard" value = "1"/><span>State Bank of India</span></label></p><p><label><input type="checkbox" name = "CreditCard" value = "2"/><span>Central Bank of India</span></label></p><p><label> <input type="checkbox" name = "CreditCard" value = "3"/><span>Swiss Bank </span></label></p><p><label><input type="checkbox" name = "CreditCard" value = "4"/><span>Bank of Baroda </span></label></p><p><label><input type="checkbox" name = "CreditCard" value = "5"/><span>HDFC </span></label></p><p><label><input type="checkbox" name = "CreditCard" value = "6"/><span>Capital One </span></label></p><p><label> <input type="checkbox" name = "CreditCard" value = "7"/><span>ICICI </span></label></p>';
+      }
+})
+function submitt(){
+	var form = document.getElementById('form')
+	if (checkbox.checked){
+		form.action = "{%url 'ExtBank'%}";
+		form.submit();
+	} else{
+		form.action = "{%url 'Transact'%}";
+		form.submit();
+	}
+}
+</script>
+{%endblock%}

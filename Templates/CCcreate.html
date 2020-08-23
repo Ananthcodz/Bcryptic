@@ -1,0 +1,78 @@
+{%extends 'Template.html'%}
+{%block title%}
+Credit Card Creation
+{%endblock%}
+
+{%block content%}
+  <link href='https://fonts.googleapis.com/css?family=Prosto One' rel='stylesheet'>
+	<h5 style = "font-weight: bold; margin-left:39%"><span style="color:#FFFFFF;font-family:Prosto One">CREDIT CARD CREATION</h6></span>
+				<hr>
+  <div class = "card-panel" style="padding:20px;background-image: linear-gradient(to bottom right,#383838,#707070 )">
+		<div class = "card-content" style="padding:20px;background-color: ">
+			
+	<form action ="" method="POST" id = "Form">
+	{%csrf_token%}
+	<label><span style="color:#000000"> First Name:</span> </label>
+	<input type = "text" name = "FirstName"><br><br>
+	<label><span style="color:#000000"> Last Name:</span> </label>
+	<input type = "text" name = "LastName"><br><br>
+	<label><span style="color:#000000;font-weight:bold">The Bank Of Choice :</span>-</label>
+	<p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "1"/>
+        <span style="color:#000000">State Bank of India</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "2"/>
+        <span style="color:#000000">Central Bank of India</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "3"/>
+        <span style="color:#000000">Swiss Bank </span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "4"/>
+        <span style="color:#000000">Bank of Baroda </span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "5"/>
+        <span style="color:#000000">HDFC </span>
+      </label>
+    </p>
+	<p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "6"/>
+        <span style="color:#000000">Capital One </span>
+      </label>
+    </p>
+	<p>
+      <label>
+        <input type="checkbox" name = "CreditCard" value = "7"/>
+        <span style="color:#000000">ICICI </span>
+      </label>
+    </p>
+	
+	
+	
+<label><span style="color:#000000"> Purpose: </span></label>
+	<input type = "text" name = "Purpose"><br><br>
+	<button onclick="submit()">Submit</button>
+	</form>
+		</div>
+</div>
+
+
+<script type="text/javascript">
+	function submit(){
+		document.getElementById('Form').submit();
+	}
+</script>
+{%endblock%}

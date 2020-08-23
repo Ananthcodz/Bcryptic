@@ -1,0 +1,33 @@
+{%extends 'Template.html'%}
+{%block title%}
+Login
+{%endblock%}
+
+{%block content%}
+<style>
+	.card-panel {
+		position: absolute;
+		top: 48%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-35%);
+		animation: myanimation3 2s infinite;
+		background: linear-gradient(to bottom, #ff3300 0%, #ffcc00 100%);
+}
+	}
+</style>
+<div class ="card-panel hoverable">
+<form action ="" method  = "POST" id = "Form">
+{%csrf_token%}
+<label><span style="color:#000000">Username:</label></span>
+<input type ="text" name = "username"><br><br>
+<label><span style="color:#000000">Password:</label>
+<input type="password" name = "password"><br><br>
+<button onclick="submit()">Submit</button>
+</form>
+<script type="text/javascript">
+	function submit(){
+		document.getElementById('Form').submit();
+	}
+</script>
+</div>
+{%endblock%}

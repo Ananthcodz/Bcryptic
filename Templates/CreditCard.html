@@ -1,0 +1,44 @@
+{%extends 'Template.html'%}
+
+{%block title%}
+Credit Card
+{%endblock%}
+
+{%block content%}
+<div class = "card-panel" style="background-image: linear-gradient(to bottom right,#383838,#707070 );margin: 20px">
+		<div class = "card-content">
+				<h5 style="margin-left:35%; font-weight: bold">
+					YOUR CREDIT CARD!!
+				</h5>
+				<hr>
+				{%for i in Card%}
+				{%load static%}
+				{%if i.credit_card == "1"%}
+				<img src= "{%static '1.png'%}" style="margin-left: 36%">
+				{%elif i.credit_card == "2"%}
+				<img src= "{%static '2.jpg'%}" style="margin-left: 39%">
+				{%elif i.credit_card == "3"%}
+				<img src= "{%static '3.jpg'%}" style="margin-left: 38%">
+				{%elif i.credit_card == "4"%}
+				<img src= "{%static '4.jpg'%}" style="margin-left: 33%">
+				{%elif i.credit_card == "5"%}
+				<img src= "{%static 'hdfc.png'%}" style="margin-left: 34%">
+				{%elif i.credit_card == "6"%}
+				<img src= "{%static '6.jpg'%}" style="margin-left: 32%">
+				{%elif i.credit_card == "7"%}
+				<img src= "{%static '7.png'%}" style="margin-left: 41%">
+				{%endif%}
+				<br><br>
+				{%if i.Permitted%}
+				<span style = "font-weight: bold"> CARD NUMBER : {{i.CardNo}}</span><br><br>
+				<span style="font-weight: bold"> CVV : {{i.CVV}}</span><br>
+				{%else%}
+				<link href='https://fonts.googleapis.com/css?family=Rubik Mono One' rel='stylesheet'>
+				<span style= "margin-left:20%; font-weight: bold; font-family:Rubik Mono One;font-size:110%"> Your card has been issued and will be delivered to you by next week :) </span><br><br>
+				<span style= "margin-left:20%;font-weight: bold;font-family:Rubik Mono One;font-size:110%"> The remaining instructions are listed in our 'Contact' page </span>
+				{%endif%}
+				{%endfor%}
+			
+		</div>
+</div>
+{%endblock%}

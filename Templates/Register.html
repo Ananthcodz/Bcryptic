@@ -1,0 +1,70 @@
+{%extends 'Template.html'%}
+{%block title%}
+
+{%endblock%}
+
+{%block content%}
+<style>
+	.card-panel{
+		background-image: linear-gradient(to bottom right,#666699 , #29293d);
+		margin:20px;
+		padding-top: 30px;
+	}
+</style>
+<div class ="card-panel hoverable">
+
+<form action ="" method="POST" id = "Form">
+{%csrf_token%}
+<label><span style="color:#000000"> Username: </label></span>
+<input type = "text" name = "username"><br><br>
+<label><span style="color:#000000"> Password: </label></span>
+<input type = "password" name = "password1"><br><br>
+<label><span style="color:#000000"> confirm: </label></span>
+<input type = "password" name = "password2"><br><br>
+<label><span style="color:#000000"> Email: </label></span>
+<input type = "text" name = "email"><br><br>
+<label><span style="color:#000000"> First Name: </label></span>
+<input type = "text" name = "FirstName"><br><br>
+<label><span style="color:#000000"> Last Name: </label></span>
+<input type = "text" name = "LastName"><br><br>
+<label><span style="color:#000000">Address: </label></span>
+<input type = "text" name = "Address"><br><br>
+<label><span style="color:#000000"> Pan No.: </label></span>
+<input type = "text" name = "PanCard"><br><br>
+<label><span style="color:#000000"> Phone No.: </label></span>
+<input type = "text" name = "PhoneNumber"><br><br>
+<label><span style="color:#000000"> Aadhar No.: </label></span>
+<input type = "text" name = "Aadhar"><br><br>
+<label><span style="color:#000000">Gender:</label>
+<br>
+<p>
+      <label>
+        <input type="checkbox" name = "Gender" value = "1"/>
+        <span style="color:#000000">Male</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "Gender" value = "2"/>
+        <span style="color:#000000">Female</span>
+      </label>
+    </p>
+<p>
+      <label>
+        <input type="checkbox" name = "Gender" value = "3"/></span>
+        <span style="color:#000000">Others</span>
+      </label>
+    </p>
+
+
+
+<button onclick="submit()">Submit</button>
+</form>
+</div>
+
+<script type="text/javascript">
+	function submit(){
+		document.getElementById('Form').submit();
+	}
+</script>
+{%endblock%}
