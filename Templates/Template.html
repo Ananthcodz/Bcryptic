@@ -60,7 +60,7 @@
   font-style: normal;
 }
 </style>
- <body style="background-image: linear-gradient(to right,#000000, #404040 );font-family:PressStart2P-Regular">
+ <body style="background-image: linear-gradient(to right,#000000, #404040 )">
 
 
   <nav style="background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(217,208,25,1) 35%, rgba(87,233,36,1) 100%)">
@@ -72,14 +72,14 @@
       <a href="#" class="brand-logo center"><img src= "{%static 'logo.png'%}" ></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
       	{%if user.is_authenticated%}
-        <li><a href="{%url 'CreditCard'%}"><span style ="color:#000000;font-size:85%">CreditCard</a></li></span>
-        <li><a href="{%url 'BankingSystem'%}"><span style ="color:#000000;font-size:85%">Banking</a></li></span>
-        <li><a href="{%url 'Loans'%}"><span style ="color:#000000;font-size:85%">Loans</a></li></span>
-        <li><a href="{%url 'Contact'%}"><span style ="color:#000000;font-size:85%">Contact</a></li></span>
-      	<li><a href="{%url 'logout'%}"><span style ="color:#000000;font-size:85%">Logout</a></li></span>
+        <li><a href="{%url 'CreditCard'%}"><span style ="color:#000000;font-size:85%;font-family:PressStart2P-Regular">CreditCard</a></li></span>
+        <li><a href="{%url 'BankingSystem'%}"><span style ="color:#000000;font-size:85%;font-family:PressStart2P-Regular">Banking</a></li></span>
+        <li><a href="{%url 'Loans'%}"><span style ="color:#000000;font-size:85%;font-family:PressStart2P-Regular">Loans</a></li></span>
+        <li><a href="{%url 'Contact'%}"><span style ="color:#000000;font-size:85%;font-family:PressStart2P-Regular">Contact</a></li></span>
+      	<li><a href="{%url 'logout'%}"><span style ="color:#000000;font-size:85%;font-family:PressStart2P-Regular">Logout</a></li></span>
         {%else%}
-        <li><a href="{%url 'Login'%}"><span style="color:#000000">Login</span></a></li>
-        <li><a href="{%url 'Register'%}"><span style="color:#000000">Register</span></a></li>
+        <li><a href="{%url 'Login'%}"><span style="color:#000000;font-family:PressStart2P-Regular">Login</span></a></li>
+        <li><a href="{%url 'Register'%}"><span style="color:#000000;font-family:PressStart2P-Regular">Register</span></a></li>
         {%endif%}
       </ul>
     </div>
