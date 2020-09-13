@@ -7,48 +7,48 @@ Banking
 {%block content%}
 <div class = "card-panel" style = "background-image: linear-gradient(to bottom right,#ff9933,  #ffcc66 ); margin:20px">
 	<div class='card-content' style="background-color:#ffff80">
-		<span class = 'card-title'><span style= "font-weight: bold;margin:40%;font-size:100%;font-family:Anton-Regular">BANKING SYSTEM</span></span>
+		<span class = 'card-title'><span style= "font-weight: bold;margin:40%;font-size:150%;font-family:Anton-Regular">BANKING SYSTEM</span></span>
 		<hr>
 	<div class="col s12" style="background-color:#ffff99">
       <ul class="tabs" style="background-color:#ffff99">
-        <li class="tab col s3"><a class="active"href="#test1"><span style="color:#000000;font-family:Anton-Regular">Balance</span></a></li>
-        <li class="tab col s3"><a href="#test2"><span style="color:#000000;font-family:Anton-Regular">Transact</span></a></li>
-        <li class="tab col s3"><a href="#test3"><span style="color:#000000;font-family:Anton-Regular">Statements</span></a></li>
+        <li class="tab col s3"><a class="active"href="#test1"><span style="color:#000000;font-family:Anton-Regular;font-size:130%">Balance</span></a></li>
+        <li class="tab col s3"><a href="#test2"><span style="color:#000000;font-family:Anton-Regular;font-size:130%">Transact</span></a></li>
+        <li class="tab col s3"><a href="#test3"><span style="color:#000000;font-family:Anton-Regular;font-size:130%">Statements</span></a></li>
       </ul>
     </div>
     <div id="test1" class="card-panel" style="background-color:#ffffcc">
     	<div class='card-content'style="background-color:#ffffcc">
-    		<span class = 'card-title'style= "font-weight: bold;color:#000000;font-family:Anton-Regular">Balance</span>
+    		<span class = 'card-title'style= "font-weight: bold;color:#000000;font-family:Anton-Regular;font-size:130%">Balance</span>
 		<hr>
 		Your Balance: {{BankModel.Balance}}
     	</div>
     </div>
     <div id="test2" class="card-panel" style="background-color:#ffffcc">
     	<div class='card-content' style="background-color:#ffffcc">
-    		<span class = 'card-title' style= "font-weight: bold;color:#000000;font-family:Anton-Regular">Transact</span>
+    		<span class = 'card-title' style= "font-weight: bold;color:#000000;font-family:Anton-Regular;font-size:130%">Transact</span>
 		<hr>
 	<form method = "POST" id = "form">
 		{%csrf_token%}
 			
-	<label><span style="color:#000000;font-family:Anton-Regular"> Amount: </label></span>
+	<label><span style="color:#000000;font-family:Anton-Regular;font-size:130%"> Amount: </label></span>
 	<input type = "text" name = "Amount"><br><br>
-  <label><span style="color:#000000;font-family:Anton-Regular"> Choice: </label></span>
+  <label><span style="color:#000000;font-family:Anton-Regular;font-size:130%"> Choice: </label></span>
 	<p>
       	<label>
         	<input type="checkbox" id = "ExternalBank" />
-        	<span style="color:#000000;font-family:Anton-Regular">Other Banks</span>
+        	<span style="color:#000000;font-family:Anton-Regular;font-size:130%">Other Banks</span>
      	 </label>
     </p>
 	<p>
       	<label>
         	<input type="checkbox" name = "Type" value = "1">
-        	<span style="color:#000000;font-family:Anton-Regular">Deposit to wallet </span>
+        	<span style="color:#000000;font-family:Anton-Regular;font-size:130%">Deposit to wallet </span>
      	 </label>
     	</p>
 	<p>
       <label>
         <input type="checkbox" name = "Type" value = "2">
-        <span style="color:#000000;font-family:Anton-Regular">Withdraw from wallet</span>
+        <span style="color:#000000;font-family:Anton-Regular;font-size:130%">Withdraw from wallet</span>
       </label>
     </p>
     <div id = "ExtBank">
@@ -62,15 +62,15 @@ Banking
     </div>
     <div id="test3" class="card-panel" style="background-color:#ffffcc">
     <div class='card-content'style="background-color:#ffffcc">
-        <span class = 'card-title'><span style= "font-weight: bold;color:#000000">Statements</span></span>
+        <span class = 'card-title'><span style= "font-weight: bold;color:#000000;font-family:Anton-Regular;font-size:130%">Statements</span></span>
 
       <table class="highlight">
         <thead>
           <tr>
-              <th style="text-decoration: underline;font-family:Anton-Regular">Transaction Id</th>
-              <th style="text-decoration: underline;font-family:Anton-Regular">Amount</th>
-              <th style="text-decoration: underline;font-family:Anton-Regular">Type</th>
-              <th style="text-decoration: underline;font-family:Anton-Regular">Bank</th>
+              <th style="text-decoration: underline;font-family:Anton-Regular;font-size:130%">Transaction Id</th>
+              <th style="text-decoration: underline;font-family:Anton-Regular;font-size:130%">Amount</th>
+              <th style="text-decoration: underline;font-family:Anton-Regular;font-size:130%">Type</th>
+              <th style="text-decoration: underline;font-family:Anton-Regular;font-size:130%">Bank</th>
           </tr>
         </thead>
 
